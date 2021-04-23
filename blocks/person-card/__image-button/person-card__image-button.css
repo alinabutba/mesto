@@ -1,0 +1,11 @@
+.person-card__image-button {
+    
+    background-repeat: no-repeat;
+    object-fit: cover;
+    align-items: center;
+}
+
+.person-card__image-button:hover {
+    opacity: .6;
+    transition: opacity .3s ease;
+}

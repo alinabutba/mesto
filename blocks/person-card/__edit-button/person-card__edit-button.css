@@ -1,0 +1,10 @@
+.person-card__edit-button {
+    padding: 0;
+    background-image: url(../../../images/EditButton.svg);
+    border: none;
+    background-repeat: no-repeat;
+    background-color: #000000;
+    min-width: 24px;    
+    height: 24px;
+    margin: auto  10px;
+}

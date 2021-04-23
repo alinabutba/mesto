@@ -1,0 +1,26 @@
+@import url(./__contact-info/form-edit__contact-info.css);
+@import url(./__name/form-edit__name.css);
+@import url(./__job/form-edit__job.css);
+@import url(./__save-button/form-edit__save-button.css);
+
+.form-edit {
+    background-color: #ffffff;
+    width: 430px;
+    padding-top: 34px;
+    padding-left: 43px;
+    padding-right: 57px;
+    padding-bottom: 39px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    box-sizing: border-box;   
+}
+
+@media screen and (max-width: 640px) {
+    .form-edit {
+        width: 282px;
+        padding-left: 22px;
+        padding-right: 22px;
+        padding-bottom: 25px;
+    }
+}

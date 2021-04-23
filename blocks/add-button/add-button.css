@@ -1,0 +1,26 @@
+@import url(./__image/add-button__image.css);
+@import url(./__link/add-button__link.css);
+@import url();
+
+.add-button {
+    display: block;
+    margin: 0;
+    padding: 0; 
+    min-width: 150px;
+    min-height: 50px;
+    border: 1px solid #ffffff;
+    background-color: #000000;
+    cursor: pointer;
+}
+
+.add-button:hover {
+    opacity: .6;
+    transition: opacity .3s ease;
+}
+
+@media screen and (max-width: 600px) {
+    .add-button {
+        min-width: 282px;
+        min-height: 50px;
+    }    
+}

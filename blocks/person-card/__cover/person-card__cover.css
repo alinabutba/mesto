@@ -1,0 +1,11 @@
+.person-card__cover {
+    margin: 0;text-align: left;
+    max-width: 345px;
+}
+
+@media screen and (max-width: 640px) {
+    .person-card__cover {
+        max-width: 282px;
+        flex-direction: column;
+    }
+}

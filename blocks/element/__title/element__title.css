@@ -1,0 +1,10 @@
+.element__title {
+    width: 100%;
+    color: #000000;
+    display: inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-right: 30px;
+    margin-left: 21px;   
+}

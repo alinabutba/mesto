@@ -1,0 +1,25 @@
+.person-card__job {    
+    margin: 0;
+    max-width: 336px;
+    grid-area: person-card__job;
+    align-self: center;
+    text-align: left;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+@media screen and (max-width: 600px) {
+    .person-card__job {
+    max-width: 217px;
+    flex-direction: column;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    }
+}

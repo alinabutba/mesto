@@ -1,0 +1,30 @@
+.popup-edit__close-button {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    background-image: url(../../../images/button-close.png);
+    background-position: center;
+    background-color:rgba(0, 0, 0, 0);
+    width: 40px;
+    height: 40px;
+    top: -30px;
+    right: -50px;
+    background-repeat: no-repeat;
+    object-fit: cover;
+    cursor: pointer;
+    border: none;
+}
+
+.popup-edit__close-button:hover {
+    opacity: .6;
+    transition: opacity .3s ease;
+}
+
+@media screen and (max-width: 430px) {
+    .popup-edit__close-button {
+        width: 26px;
+        height: 26px;
+        top: -42px;
+        right: 0;
+    }
+}

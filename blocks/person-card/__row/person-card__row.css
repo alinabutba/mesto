@@ -1,0 +1,14 @@
+.person-card__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+@media screen and (max-width: 640px) {
+    .person-card__row {
+        min-width: 227px;
+    }
+}

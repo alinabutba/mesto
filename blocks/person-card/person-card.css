@@ -1,0 +1,23 @@
+@import url(./__avatar/person-card__avatar.css);
+@import url(./__name/person-card__name.css);
+@import url(./__job/person-card__job.css);
+@import url(./__edit-button/person-card__edit-button.css);
+@import url(./__image-button/person-card__image-button.css);
+@import url(./__cover/person-card__cover.css);
+@import url(./__row/person-card__row.css);
+
+
+.person-card {
+    min-width: 282px;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    flex-direction: row;
+    margin: 0;
+}
+
+@media screen and (max-width: 600px) {
+    .person-card {
+        flex-direction: column;
+    }
+}
