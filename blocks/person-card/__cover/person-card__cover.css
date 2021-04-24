@@ -1,5 +1,6 @@
 .person-card__cover {
-    margin: 0;text-align: left;
+    margin: 0;
+    text-align: left;
     max-width: 345px;
 }
 
