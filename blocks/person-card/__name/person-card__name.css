@@ -1,19 +1,18 @@
 .person-card__name {
     display: inline-block;
-    margin: 0;    
+    margin: 0;
     font-style: normal;
     font-weight: 500;
     font-size: 42px;
     line-height: 48px;
     text-overflow: ellipsis;
     white-space: nowrap;
-    overflow: hidden;    
+    overflow: hidden;
     text-align: left;    
 }
 
 @media screen and (max-width: 640px) {
     .person-card__name {
-    text-align: center;
     font-style: normal;
     font-weight: 500;
     font-size: 27px;
