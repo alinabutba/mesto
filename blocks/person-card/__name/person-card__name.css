@@ -1,6 +1,6 @@
 .person-card__name {
     display: inline-block;
-    margin: 0;
+    margin: 0 auto 16px auto;
     font-style: normal;
     font-weight: 500;
     font-size: 42px;
@@ -8,7 +8,6 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
-    text-align: left;    
 }
 
 @media screen and (max-width: 640px) {

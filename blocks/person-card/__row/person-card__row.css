@@ -9,6 +9,6 @@
 
 @media screen and (max-width: 640px) {
     .person-card__row {
-        min-width: 227px;
+        justify-content: center;
     }
 }

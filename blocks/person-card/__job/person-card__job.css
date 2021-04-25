@@ -1,7 +1,6 @@
 .person-card__job {    
     margin: 0;
     max-width: 336px;
-    grid-area: person-card__job;
     align-self: center;
     text-align: left;
     font-weight: 400;
