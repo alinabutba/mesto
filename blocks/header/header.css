@@ -1,10 +1,12 @@
+@import url(./_margin_top-bottom/_margin_top-bottom.css);
+
 .header {    
     min-height: 74px;
     border-bottom: solid 1px #545454;
-    box-sizing: border-box;
+    
 }
 
-@media screen and (max-width: 430px) {
+@media screen and (max-width: 920px) {
     .header {
         min-height: 56px;
         padding-left: 27px;

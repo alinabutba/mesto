@@ -4,7 +4,7 @@
     position: absolute;
     background-image: url(../../../images/button-close.png);
     background-position: center;
-    background-color:rgba(0, 0, 0, 0);
+    background-color: #00000000;
     width: 40px;
     height: 40px;
     top: -30px;
@@ -20,7 +20,7 @@
     transition: opacity .3s ease;
 }
 
-@media screen and (max-width: 430px) {
+@media screen and (max-width: 600px) {
     .popup-edit__close-button {
         width: 26px;
         height: 26px;

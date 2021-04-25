@@ -1,17 +1,20 @@
 @import url(./__title/popup-edit__title.css);
 @import url(./__close-button/popup-edit__close-button.css);
-@import url(./__container/popup-edit__container.css);
+
 
 .popup-edit {
-  position: fixed;
-  top: 19%;
-  left: 50%;
-  transform: translateX(-50%);
+  position: relative;
+  background-color: #ffffff;
+  margin: 0;
+  padding: 0;  
+  border-radius: 10px;
+  max-width: 430px;
+  width: 100%;
+  display: block;
 }
 
-@media screen and (max-height: 480px) {
-    .popup-edit {
-      top: 8%;
-    }
+@media screen and (max-width: 430px) {
+  .popup-edit {
+    max-width: 282px;
   }
-  
+}

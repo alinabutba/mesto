@@ -1,5 +1,5 @@
 .form-edit__save-button {
-    padding: 0;
+    max-width: 358px;
     width: 100%;
     min-height: 50px;
     border-radius: 2px;
@@ -16,4 +16,10 @@
 .form-edit__save-button:hover {
     opacity: .8;
     transition: opacity .3s ease;
+}
+
+@media screen and (max-width: 430px) {
+    .form-edit__save-button {
+        max-width: 238px;
+    }
 }

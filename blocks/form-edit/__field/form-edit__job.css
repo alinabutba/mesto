@@ -1,21 +1,27 @@
-.form-edit__job {    
-    margin: 0;
+.form-edit__field {
+    box-sizing: border-box;
+    max-width: 358px;
     width: 100%;
-    margin-bottom: 59px;
     min-height: 27px;
     border: none;
     border-bottom: 1px solid rgba(0, 0, 0, .2);
     font-style: normal;
-    font-weight: 1;
+    font-weight: normal;
     font-size: 14px;
     line-height: 17px;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.form-edit__field:last-of-type {
+    margin-bottom: 48px;
 }
 
 @media screen and (max-width: 430px) {
-    .form-edit__job {
+    .form-edit__field:last-of-type {
+        max-width: 238px;
         margin-bottom: 45px;
     }
 }

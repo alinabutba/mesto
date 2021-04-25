@@ -1,6 +1,4 @@
-@import url(./__image/add-button__image.css);
 @import url(./__link/add-button__link.css);
-@import url();
 
 .add-button {
     display: block;
@@ -11,6 +9,9 @@
     border: 1px solid #ffffff;
     background-color: #000000;
     cursor: pointer;
+    background-image: url(../../images/Vector.png);
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .add-button:hover {
