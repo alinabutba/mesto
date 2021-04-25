@@ -4,14 +4,14 @@
 
 .form-edit {
     margin: 0 auto 23px auto;
-    background-color: #ffffff;    
+    background-color: #ffffff;
     max-width: 358px;
     width: 100%;
 }
 
 @media screen and (max-width: 430px) {
     .form-edit {
-        max-width: 238px;        
+        max-width: 238px;
         margin-bottom: 25px;        
     }
 }
