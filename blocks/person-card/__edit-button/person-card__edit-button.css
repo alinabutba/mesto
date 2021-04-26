@@ -8,6 +8,7 @@
     height: 24px;
     margin: auto  10px;
     display: inline-block;
+    cursor: pointer;
 }
 
 .person-card__edit-button:hover {

@@ -1,14 +1,14 @@
-@import url(./_margin_top-bottom/_margin_top-bottom.css);
-
-.header {    
-    min-height: 74px;
+.header {
+    padding-top: 45px;
+    padding-bottom: 41px;
     border-bottom: solid 1px #545454;
     
 }
 
 @media screen and (max-width: 920px) {
     .header {
-        min-height: 56px;
         padding-left: 27px;
+        padding-top: 28px;
+        padding-bottom: 31px;
     }
 }
