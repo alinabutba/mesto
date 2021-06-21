@@ -1,0 +1,4 @@
+.popup-card.popup-card_opened {
+  display: block;
+  visibility: visible;
+}

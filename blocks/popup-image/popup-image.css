@@ -1,0 +1,22 @@
+@import url(./_opened/popup-image_opened.css);
+@import url(./__close-button/popup-image__close-button.css);
+@import url(./__picture/popup-image__picture.css);
+@import url(./__picture-text/popup-image__picture-text.css);
+
+.popup-image {
+  max-width: 75vw;
+  max-height: 75vh;
+  margin: 0;
+  padding: 0;
+  z-index: 6;
+  display: none;
+  visibility: hidden;
+  position: absolute;
+}
+
+@media screen and (max-width: 430px) {
+  .popup-image {
+    max-width: 240px;
+    max-height: 299px;
+  }
+}

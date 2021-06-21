@@ -1,15 +1,22 @@
 @import url(./_opened/overlay_opened.css);
 
 .overlay {
-    display: none;
-    font-family: 'Inter', Arial, Helvetica, sans-serif;
-    position: fixed;
-    background-color: rgba( 0, 0, 0, .5);
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    align-items: center;
-    justify-content: center;
-    z-index: 2;
+  display: flex;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.overlay::before {
+  transition: visibility 0s linear 0.5s, opacity 0.5s linear;
 }

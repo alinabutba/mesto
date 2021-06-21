@@ -1,25 +1,25 @@
 .add-button {
-    display: block;
-    margin: 0;
-    padding: 0;
-    min-width: 150px;
-    min-height: 50px;
-    border: 1px solid #ffffff;
-    background-color: #000000;
-    cursor: pointer;
-    background-image: url(../../images/Vector.png);
-    background-repeat: no-repeat;
-    background-position: center;
+  display: block;
+  margin: 0;
+  padding: 0;
+  min-width: 150px;
+  min-height: 50px;
+  border: 1px solid #ffffff;
+  background-color: #000000;
+  cursor: pointer;
+  background-image: url(../../images/Vector.png);
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .add-button:hover {
-    opacity: .6;
-    transition: opacity .3s ease;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
 }
 
 @media screen and (max-width: 600px) {
-    .add-button {
-        min-width: 282px;
-        min-height: 50px;
-    }    
+  .add-button {
+    min-width: 282px;
+    min-height: 50px;
+  }
 }

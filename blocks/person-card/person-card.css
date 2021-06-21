@@ -6,19 +6,18 @@
 @import url(./__cover/person-card__cover.css);
 @import url(./__row/person-card__row.css);
 
-
 .person-card {
-    padding-top: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 880px;
-    margin: 0 auto;
+  padding-top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 880px;
+  margin: 0 auto;
 }
 
 @media screen and (max-width: 920px) {
-    .person-card {
-        flex-direction: column;
-        justify-content: start;
-    }
+  .person-card {
+    flex-direction: column;
+    justify-content: start;
+  }
 }

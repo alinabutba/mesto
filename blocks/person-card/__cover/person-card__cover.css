@@ -1,14 +1,14 @@
 .person-card__cover {
-    margin-right: auto;
-    text-align: center;
-    max-width: 345px;
+  margin-right: auto;
+  text-align: center;
+  max-width: 345px;
 }
 
 @media screen and (max-width: 920px) {
-    .person-card__cover {
-        margin: 0;
-        max-width: 282px;
-        flex-direction: column;
-        text-align: center;
-    }
+  .person-card__cover {
+    margin: 0;
+    max-width: 282px;
+    flex-direction: column;
+    text-align: center;
+  }
 }

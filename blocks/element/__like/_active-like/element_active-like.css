@@ -1,0 +1,4 @@
+.element__like.element_active-like {
+  opacity: 1;
+  background-image: url(../../../../images/Vector-like-active.png);
+}

@@ -1,0 +1,17 @@
+.popup-image__picture-text {
+  display: block;
+  margin: 10px 0 0;
+  width: 291px;
+  height: 12px;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 15px;
+}
+
+@media screen and (max-width: 430px) {
+  .popup-image__picture-text {
+    width: 240px;
+  }
+}

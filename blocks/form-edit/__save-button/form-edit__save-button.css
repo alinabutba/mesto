@@ -1,25 +1,25 @@
 .form-edit__save-button {
-    max-width: 358px;
-    width: 100%;
-    min-height: 50px;
-    border-radius: 2px;
-    border: none;
-    background-color: #000000;
-    color: #ffffff;
-    font-weight: 1;
-    font-size: 18px;
-    line-height: 22px;
-    text-align: center;
-    cursor: pointer;
+  max-width: 358px;
+  width: 100%;
+  min-height: 50px;
+  border-radius: 2px;
+  border: none;
+  background-color: #000000;
+  color: #ffffff;
+  font-weight: 1;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  cursor: pointer;
 }
 
 .form-edit__save-button:hover {
-    opacity: .8;
-    transition: opacity .3s ease;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
 }
 
 @media screen and (max-width: 430px) {
-    .form-edit__save-button {
-        max-width: 238px;
-    }
+  .form-edit__save-button {
+    max-width: 238px;
+  }
 }

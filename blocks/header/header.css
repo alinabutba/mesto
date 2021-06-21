@@ -1,14 +1,13 @@
 .header {
-    padding-top: 45px;
-    padding-bottom: 41px;
-    border-bottom: solid 1px #545454;
-    
+  padding-top: 45px;
+  padding-bottom: 41px;
+  border-bottom: solid 1px #545454;
 }
 
 @media screen and (max-width: 920px) {
-    .header {
-        padding-left: 27px;
-        padding-top: 28px;
-        padding-bottom: 31px;
-    }
+  .header {
+    padding-left: 27px;
+    padding-top: 28px;
+    padding-bottom: 31px;
+  }
 }
