@@ -1,4 +1,3 @@
-.element__like.element_active-like {
-  opacity: 1;
+.element__like_active {
   background-image: url(../../../../images/Vector-like-active.png);
 }

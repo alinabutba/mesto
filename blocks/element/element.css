@@ -1,10 +1,3 @@
-@import url(./__image/element__image.css);
-@import url(./__title/element__title.css);
-@import url(./__like/element__like.css);
-@import url(./__like/_active-like/element_active-like.css);
-@import url(./__container/element-container.css);
-@import url(./__delete/element__delete.css);
-
 .element {
   margin: 0;
   background-color: #ffffff;

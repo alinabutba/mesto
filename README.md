@@ -15,4 +15,4 @@
 ## Планы по улучшению работы 
 * Перевести сайт на английский язык 
 
-[Ссылка на мою проектную работу] (https://alinabutba.github.io/alinabutba/mesto/)
+[Ссылка на мою проектную работу] (https://alinabutba.github.io/mesto/)
