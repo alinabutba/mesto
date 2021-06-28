@@ -44,8 +44,8 @@ function openPopup(popup) {
 
 // функция заполнения формы popup с картинкой
 function addInfoPopupImage(popupImage, link, name) {
-  const picture = popupImage.querySelector(".picture");
-  const pictureText = popupImage.querySelector(".picture__text");
+  const picture = popupImage.querySelector(".popup__picture");
+  const pictureText = popupImage.querySelector(".popup__picture-text");
   picture.src = link;
   picture.alt = name;
   pictureText.textContent = name;

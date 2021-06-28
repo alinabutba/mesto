@@ -1,4 +1,4 @@
-.picture__text {
+.popup__picture-text {
   color: rgb(255, 255, 255);
   display: block;
   margin: 10px 0 0;
@@ -12,7 +12,7 @@
 }
 
 @media screen and (max-width: 430px) {
-  .picture__text {
+  .popup__picture-text {
     width: 240px;
   }
 }
