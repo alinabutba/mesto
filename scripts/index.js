@@ -19,6 +19,9 @@ const cardLink = document.querySelector("#link-form");
 const cardsContainerTemplate = document.querySelector(".elements");
 const cardTemplate = document.querySelector("#element-template");
 
+const picture = popupImage.querySelector(".popup__picture");
+const pictureText = popupImage.querySelector(".popup__picture-text");
+
 // слушатели событий на кнопки закрытия в popup и их вызов
 initialClosePopupButtons(popupEdit);
 initialClosePopupButtons(popupCard);
@@ -44,8 +47,6 @@ function openPopup(popup) {
 
 // функция заполнения формы popup с картинкой
 function addInfoPopupImage(popupImage, link, name) {
-  const picture = popupImage.querySelector(".popup__picture");
-  const pictureText = popupImage.querySelector(".popup__picture-text");
   picture.src = link;
   picture.alt = name;
   pictureText.textContent = name;
@@ -65,7 +66,6 @@ submitPersonForm.addEventListener("submit", (evt) => {
   cardName.textContent = nameInput.value;
   cardJob.textContent = jobInput.value;
   closePopup(popupEdit);
-  submitPersonForm.reset();
 });
 
 // добавление карточек
@@ -92,6 +92,7 @@ function createCard(name, link) {
 
   cardTitle.textContent = name;
   cardImage.src = link;
+  cardImage.alt = name;
 
   // открытие popup с картинкой
   cardImage.addEventListener("click", () => {
