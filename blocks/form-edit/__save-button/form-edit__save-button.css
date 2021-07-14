@@ -18,6 +18,14 @@
   transition: opacity 0.3s ease;
 }
 
+.form-edit__save-button:disabled {
+  color: #C4C4C4;
+ border: 1px solid #C4C4C4;
+  background-color: #ffffff;
+  pointer-events: none;
+  user-select: none;
+}
+
 @media screen and (max-width: 430px) {
   .form-edit__save-button {
     max-width: 238px;

@@ -1,0 +1,8 @@
+.form-edit__save-button_inactive {
+    color: #FFFFFF;
+    pointer-events: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}

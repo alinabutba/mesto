@@ -45,12 +45,14 @@
 		<div class="popup" id="popup-edit">
 			<div class="popup__form">
 				<h3 class="popup__title">Редактировать профиль</h3>
-				<form action="#" name="form1" class="form-edit" id="person-form">
+				<form action="#" name="form1" class="form-edit" id="person-form" novalidate>
 					<fieldset class="form-edit__contact-info">
 						<input type="text" class="form-edit__field" required name="form-name" id="name-form" placeholder="Имя"
-							autocomplete="off">
+							autocomplete="off" minlength="2" maxlength="40">
+						<span class="form-edit__field-error" id="name-form-error"></span>
 						<input type="text" class="form-edit__field" required name="form-job" id="job-form"
-							placeholder="Место работы" autocomplete="off">
+							placeholder="Место работы" autocomplete="off" minlength="2" maxlength="200">
+						<span class="form-edit__field-error" id="job-form-error"></span>
 						<button class="form-edit__save-button" type="submit" aria-label="Сохранить">Сохранить</button>
 					</fieldset>
 				</form>
@@ -61,12 +63,14 @@
 		<div class="popup" id="popup-card">
 			<div class="popup__form">
 				<h3 class="popup__title">Новое место</h3>
-				<form action="#" name="form2" class="form-edit" id="card-form">
+				<form action="#" name="form2" class="form-edit" id="card-form" novalidate>
 					<fieldset class="form-edit__contact-info">
 						<input type="text" class="form-edit__field" required name="form-title" id="title-form" autocomplete="off"
-							placeholder="Название">
+							placeholder="Название" autocomplete="off" minlength="2" maxlength="30">
+						<span class="form-edit__field-error" id="title-form-error"></span>
 						<input type="url" class="form-edit__field" required name="form-link" id="link-form" autocomplete="off"
 							placeholder="Ссылка на картинку">
+						<span class="form-edit__field-error" id="link-form-error"></span>
 						<button class="form-edit__save-button" type="submit" aria-label="Сохранить">Сохранить</button>
 					</fieldset>
 				</form>
@@ -83,6 +87,7 @@
 		</div>
 	</div>
 
+	<script src="scripts/validate.js" defer></script>
 	<script src="scripts/initial-cards.js" defer></script>
 	<script src="scripts/index.js" defer></script>
 </body>

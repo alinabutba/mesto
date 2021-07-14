@@ -22,7 +22,7 @@ const cardTemplate = document.querySelector("#element-template");
 const picture = popupImage.querySelector(".popup__picture");
 const pictureText = popupImage.querySelector(".popup__picture-text");
 
-// слушатели событий на кнопки закрытия в popup и их вызов
+// слушатели событий на кнопки закрытия в popup и их вызовы
 initialClosePopupButtons(popupEdit);
 initialClosePopupButtons(popupCard);
 initialClosePopupButtons(popupImage);
@@ -33,16 +33,34 @@ function initialClosePopupButtons(popup) {
   closeButton.addEventListener("click", (evt) => {
     closePopup(popup);
   });
+
+  // закрытие всех popups кликом на overlay
+  popup.addEventListener("click", function (event) {
+    if (event.target === event.currentTarget) {
+      closePopup(popup);
+    }
+  });
+}
+
+// закрытие всех popups кнопкой Esc
+function handleEsc(evt, popup) {
+  if (evt.key === "Escape") {
+    closePopup(popup);
+  }
 }
 
 // функция закрытия popup
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
+  document.removeEventListener("keyup", handleEsc);
 }
 
 // функция открытия popup
 function openPopup(popup) {
   popup.classList.add("popup_opened");
+  document.addEventListener("keyup", (evt) => {
+    handleEsc(evt, popup);
+  });
 }
 
 // функция заполнения формы popup с картинкой
