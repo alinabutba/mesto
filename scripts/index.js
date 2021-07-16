@@ -25,8 +25,8 @@ const pictureText = popupImage.querySelector(".popup__picture-text");
 // добавление слушателя на кнопку закрытия popup
 function initialClosePopupButtons(popup) {
   const closeButton = popup.querySelector(".popup__close-button");
-  closeButton.addEventListener("click", (evt) => {
-    popup.classList.remove("popup_opened");
+  closeButton.addEventListener("click", () => {
+    closePopup(popup);
   });
 
   // закрытие всех popups кликом на overlay
@@ -38,9 +38,10 @@ function initialClosePopupButtons(popup) {
 }
 
 // закрытие всех popups кнопкой Esc
-function handleEsc(evt, popup) {
+function handleEsc(evt) {
   if (evt.key === "Escape") {
-    closePopup(popup);
+    const openedPopup = document.querySelector(".popup_opened");
+    closePopup(openedPopup);
   }
 }
 
@@ -53,9 +54,8 @@ function closePopup(popup) {
 // функция открытия popup
 function openPopup(popup) {
   popup.classList.add("popup_opened");
-  document.addEventListener("keyup", (evt) => {
-    handleEsc(evt, popup);
-  });
+  document.addEventListener("keyup", handleEsc);
+  
 }
 
 // функция заполнения формы popup с картинкой
