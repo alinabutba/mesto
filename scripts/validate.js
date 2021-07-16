@@ -1,16 +1,21 @@
 // функции showInputError и hideInputError добавляют и очищают текст и класс ошибки
-const showInputError = (formElement, inputElement, errorMessage) => {
+const showInputError = (
+  formElement,
+  inputElement,
+  errorMessage,
+  errorClass
+) => {
   const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
 
   errorElement.textContent = errorMessage;
-  errorElement.classList.add("form-edit__field-error_active");
+  errorElement.classList.add(errorClass);
 };
 
-const hideInputError = (formElement, inputElement) => {
+const hideInputError = (formElement, inputElement, errorClass) => {
   const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
 
   errorElement.textContent = "";
-  errorElement.classList.remove("form-edit__field-error_active");
+  errorElement.classList.remove(errorClass);
 };
 
 // активное и неактивное состояния кнопки
@@ -27,14 +32,14 @@ const toggleButtonState = (inputList, buttonElement, inactiveButtonClass) => {
   }
 };
 
-const checkInputValidity = (formElement, inputElement) => {
+const checkInputValidity = (formElement, inputElement, errorClass) => {
   const isInputNotValid = !inputElement.validity.valid;
 
   if (isInputNotValid) {
     const errorMessage = inputElement.validationMessage;
-    showInputError(formElement, inputElement, errorMessage);
+    showInputError(formElement, inputElement, errorMessage, errorClass);
   } else {
-    hideInputError(formElement, inputElement);
+    hideInputError(formElement, inputElement, errorClass);
   }
 };
 
@@ -57,7 +62,7 @@ const setEventListeners = (
 
   const inputListIterator = (inputElement) => {
     const handleInput = () => {
-      checkInputValidity(formElement, inputElement);
+      checkInputValidity(formElement, inputElement, errorClass);
       toggleButtonState(inputList, buttonElement, inactiveButtonClass);
     };
 
@@ -91,11 +96,10 @@ const enableValidation = ({
       inputErrorClass,
       errorClass
     );
-    toggleButtonState(inputList, buttonElement, inactiveButtonClass);
   });
 };
 
-// функция проходится по всем формам и навешивает обработчики событий на формы
+// функция проходится по всем формам и навешивает на них обработчики событий
 enableValidation({
   formSelector: ".form-edit",
   inputSelector: ".form-edit__field",

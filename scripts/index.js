@@ -22,16 +22,11 @@ const cardTemplate = document.querySelector("#element-template");
 const picture = popupImage.querySelector(".popup__picture");
 const pictureText = popupImage.querySelector(".popup__picture-text");
 
-// слушатели событий на кнопки закрытия в popup и их вызовы
-initialClosePopupButtons(popupEdit);
-initialClosePopupButtons(popupCard);
-initialClosePopupButtons(popupImage);
-
 // добавление слушателя на кнопку закрытия popup
 function initialClosePopupButtons(popup) {
   const closeButton = popup.querySelector(".popup__close-button");
   closeButton.addEventListener("click", (evt) => {
-    closePopup(popup);
+    popup.classList.remove("popup_opened");
   });
 
   // закрытие всех popups кликом на overlay
@@ -68,29 +63,6 @@ function addInfoPopupImage(popupImage, link, name) {
   picture.src = link;
   picture.alt = name;
   pictureText.textContent = name;
-}
-
-// слушатели для форм
-submitCardForm.addEventListener("submit", (evt) => {
-  evt.preventDefault();
-  const cardNode = createCard(cardTitle.value, cardLink.value);
-  addCard(cardNode, cardsContainerTemplate);
-  closePopup(popupCard);
-  submitCardForm.reset();
-});
-
-submitPersonForm.addEventListener("submit", (evt) => {
-  evt.preventDefault();
-  cardName.textContent = nameInput.value;
-  cardJob.textContent = jobInput.value;
-  closePopup(popupEdit);
-});
-
-// добавление карточек
-for (let i = 0; i < initialCards.length; i += 1) {
-  const currentItem = initialCards[i];
-  const cardNode = createCard(currentItem.name, currentItem.link);
-  addCard(cardNode, cardsContainerTemplate);
 }
 
 // функция добавления карточки
@@ -132,6 +104,32 @@ function createCard(name, link) {
   return newCard;
 }
 
+// Создание и рендер карточек
+function renderCard(name, link, cardsContainerTemplate) {
+  const cardNode = createCard(name, link);
+  addCard(cardNode, cardsContainerTemplate);
+}
+
+// слушатели событий на кнопки закрытия в popup и их вызовы
+initialClosePopupButtons(popupEdit);
+initialClosePopupButtons(popupCard);
+initialClosePopupButtons(popupImage);
+
+// слушатели для форм
+submitCardForm.addEventListener("submit", (evt) => {
+  evt.preventDefault();
+  renderCard(cardTitle.value, cardLink.value, cardsContainerTemplate);
+  closePopup(popupCard);
+  submitCardForm.reset();
+});
+
+submitPersonForm.addEventListener("submit", (evt) => {
+  evt.preventDefault();
+  cardName.textContent = nameInput.value;
+  cardJob.textContent = jobInput.value;
+  closePopup(popupEdit);
+});
+
 // открытие и закрытие формы профиля
 openButtonPopupEdit.addEventListener("click", (evt) => {
   evt.preventDefault();
@@ -140,11 +138,18 @@ openButtonPopupEdit.addEventListener("click", (evt) => {
   openPopup(popupEdit);
 });
 
-closeButtonPopupEdit.addEventListener("click", () => {
-  closePopup(popupEdit);
-});
-
 // открытие и закрытие формы добавления карточек
 openButtonPopupCard.addEventListener("click", () => {
   openPopup(popupCard);
+
+  const inputList = Array.from(popupCard.querySelectorAll(".form-edit__field"));
+  const inactiveButtonClass = popupCard.querySelector(".form-edit__save-button_inactive");
+  const buttonElement = popupCard.querySelector(".form-edit__save-button");
+
+  toggleButtonState(inputList, buttonElement, inactiveButtonClass);
+});
+
+// добавление карточек
+initialCards.forEach((currentCard) => {
+  renderCard(currentCard.name, currentCard.link, cardsContainerTemplate);
 });
