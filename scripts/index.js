@@ -1,4 +1,8 @@
-// создание переменных для работы с DOM объектами
+import { initialCards } from "./initial-cards.js";
+import { Card } from "./Card.js";
+import { FormValidator } from "./FormValidator.js";
+
+// Создание переменных для работы с DOM объектами
 const popupEdit = document.querySelector("#popup-edit");
 const popupCard = document.querySelector("#popup-card");
 const popupImage = document.querySelector("#popup-image");
@@ -22,14 +26,16 @@ const cardTemplate = document.querySelector("#element-template");
 const picture = popupImage.querySelector(".popup__picture");
 const pictureText = popupImage.querySelector(".popup__picture-text");
 
-// добавление слушателя на кнопку закрытия popup
+const formEditAll = document.querySelectorAll(".form-edit");
+
+// Добавление слушателя на кнопку закрытия popup
 function initialClosePopupButtons(popup) {
   const closeButton = popup.querySelector(".popup__close-button");
   closeButton.addEventListener("click", () => {
     closePopup(popup);
   });
 
-  // закрытие всех popups кликом на overlay
+  // Закрытие всех popups кликом на overlay
   popup.addEventListener("click", function (event) {
     if (event.target === event.currentTarget) {
       closePopup(popup);
@@ -37,7 +43,7 @@ function initialClosePopupButtons(popup) {
   });
 }
 
-// закрытие всех popups кнопкой Esc
+// Закрытие всех popups кнопкой Esc
 function handleEsc(evt) {
   if (evt.key === "Escape") {
     const openedPopup = document.querySelector(".popup_opened");
@@ -45,84 +51,44 @@ function handleEsc(evt) {
   }
 }
 
-// функция закрытия popup
+// Функция закрытия popup
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
   document.removeEventListener("keyup", handleEsc);
 }
 
-// функция открытия popup
+// Функция открытия popup
 function openPopup(popup) {
   popup.classList.add("popup_opened");
   document.addEventListener("keyup", handleEsc);
-  
 }
 
-// функция заполнения формы popup с картинкой
-function addInfoPopupImage(popupImage, link, name) {
+// Функция заполнения формы popup с картинкой
+function addInfoPopupImage(link, name) {
   picture.src = link;
   picture.alt = name;
   pictureText.textContent = name;
 }
 
-// функция добавления карточки
-function addCard(cardNode, container) {
-  container.prepend(cardNode);
-}
-
-// отрисовка одной карточки
-function createCard(name, link) {
-  const newCard = cardTemplate.content
-    .querySelector(".element")
-    .cloneNode(true);
-  const cardTitle = newCard.querySelector(".element__title");
-  const cardImage = newCard.querySelector(".element__image");
-  const deleteButton = newCard.querySelector(".element__delete");
-  const likeButton = newCard.querySelector(".element__like");
-
-  cardTitle.textContent = name;
-  cardImage.src = link;
-  cardImage.alt = name;
-
-  // открытие popup с картинкой
-  cardImage.addEventListener("click", () => {
-    addInfoPopupImage(popupImage, link, name);
-    openPopup(popupImage);
-  });
-
-  // удаление карточки
-  deleteButton.addEventListener("click", () => {
-    newCard.remove();
-  });
-
-  // лайк
-  likeButton.addEventListener("click", () => {
-    likeButton.classList.toggle("element__like_active");
-  });
-
-  // возвращение объекта с карточкой
-  return newCard;
-}
-
-// Создание и рендер карточек
-function renderCard(name, link, cardsContainerTemplate) {
-  const cardNode = createCard(name, link);
-  addCard(cardNode, cardsContainerTemplate);
-}
-
-// слушатели событий на кнопки закрытия в popup и их вызовы
+// Слушатели событий на кнопки закрытия в popup и их вызовы
 initialClosePopupButtons(popupEdit);
 initialClosePopupButtons(popupCard);
 initialClosePopupButtons(popupImage);
 
-// слушатели для форм
+// Слушатели для формы карточка
 submitCardForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
-  renderCard(cardTitle.value, cardLink.value, cardsContainerTemplate);
+  const card = new Card(
+    { name: cardTitle.value, link: cardLink.value },
+    cardTemplate,
+    handlerPopupCard
+  );
+  cardsContainerTemplate.prepend(card.renderCard());
   closePopup(popupCard);
   submitCardForm.reset();
 });
 
+// Слушатели для формы редактирования профиля
 submitPersonForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
   cardName.textContent = nameInput.value;
@@ -130,7 +96,7 @@ submitPersonForm.addEventListener("submit", (evt) => {
   closePopup(popupEdit);
 });
 
-// открытие и закрытие формы профиля
+// Слушатели для формы картинки (действует по нажатию на каринку карточки)
 openButtonPopupEdit.addEventListener("click", (evt) => {
   evt.preventDefault();
   nameInput.value = cardName.textContent;
@@ -138,18 +104,44 @@ openButtonPopupEdit.addEventListener("click", (evt) => {
   openPopup(popupEdit);
 });
 
-// открытие и закрытие формы добавления карточек
+// Открытие и закрытие формы добавления карточек
 openButtonPopupCard.addEventListener("click", () => {
   openPopup(popupCard);
 
   const inputList = Array.from(popupCard.querySelectorAll(".form-edit__field"));
-  const inactiveButtonClass = popupCard.querySelector(".form-edit__save-button_inactive");
+  const inactiveButtonClass = popupCard.querySelector(
+    ".form-edit__save-button_inactive"
+  );
   const buttonElement = popupCard.querySelector(".form-edit__save-button");
-
-  toggleButtonState(inputList, buttonElement, inactiveButtonClass);
 });
 
-// добавление карточек
+// Callback функция открытия попапа с картинкой
+function handlerPopupCard(data) {
+  addInfoPopupImage(data.link, data.name);
+  openPopup(popupImage);
+}
+
+//  Выводим все карточки из initialCard.js
 initialCards.forEach((currentCard) => {
-  renderCard(currentCard.name, currentCard.link, cardsContainerTemplate);
+  const card = new Card(
+    { name: currentCard.name, link: currentCard.link },
+    cardTemplate,
+    handlerPopupCard
+  );
+  cardsContainerTemplate.prepend(card.renderCard());
+});
+
+// Настройка валидации
+const validationSetting = {
+  formSelector: ".form-edit",
+  inputSelector: ".form-edit__field",
+  submitButtonSelector: ".form-edit__save-button",
+  inactiveButtonClass: "form-edit__save-button_inactive",
+  errorClass: "form-edit__field-error_active",
+};
+
+// Проходим по всем формам и создаем на каждую объект валидации, после вызываем сам метод enableValidation()
+formEditAll.forEach((formElement) => {
+  const formValidation = new FormValidator(formElement, validationSetting);
+  formValidation.enableValidation();
 });

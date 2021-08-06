@@ -23,7 +23,7 @@
 }
 
 .form-edit__field:last-of-type {
-  border-bottom: 1px solid 48px;
+  border-bottom: none;
 }
 
 .form-edit__field:invalid {
@@ -33,3 +33,12 @@
 .form-edit__field:valid {
   border-bottom: 1px solid green;
 }
+
+/* 
+.form-edit__field_invalid {
+  border-bottom: 1px solid red;
+}
+
+.form-edit__field_valid {
+  border-bottom: 1px solid green;
+} */
