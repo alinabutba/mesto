@@ -58,7 +58,7 @@ export class FormValidator {
 
   // Проверка валидации всех полей
   _isValidAllInput() {
-    // Проходим по массиву и проверяем, что каждый элемент при вызове валидации возвращает true
+    // Проходим по массиву и проверяем что каждый элемент при вызове валидации возвращает true
     const isValidAll = this._inputList.every(
       (inputElement) => inputElement.validity.valid
     );
@@ -91,12 +91,12 @@ export class FormValidator {
       // Выключаем кнопку после отправки
       this._setStateButton(false);
     });
-    // В цикле на каждое поле вешаем валидацию
+    // В цикле, на каждое поле, вешаем валидацию
     this._inputList.forEach((input) => {
       input.addEventListener("input", (evt) => {
         this._checkInputValidity(this._formElement, input);
 
-        // Проверяем валидацию всех полей, чтобы отключить или включить кнопку
+        // Проверяем валидацию всех полей, что бы отключить или включить кнопку
         this._isValidAllInput();
       });
     });

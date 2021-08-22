@@ -6,7 +6,8 @@
 * Flexbox
 * Grid Layout
 * Медиазапросы
-* JavaScript 
+* JavaScript
+* Webpack 
 
 ## Информация о проекте 
 * Верстка производилась по макету из Figma
