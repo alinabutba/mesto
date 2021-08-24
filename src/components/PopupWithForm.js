@@ -3,6 +3,8 @@ import Popup from "./Popup.js";
 export default class PopupWithForm extends Popup {
   // callback принимает в конструктор колбэк сабмита формы.
   _callbackSubmit = null;
+  // callback сброс форы
+  _callbackValidity = null;
   // Тут будут храниться инпут листы из
   _inputListField = null;
   // Хранит массив полей form-edit__field
@@ -10,8 +12,9 @@ export default class PopupWithForm extends Popup {
   //  Привязываем метод _submit, к текущему контексту
   _submit = this._submit.bind(this);
 
-  constructor(popupSelector, callbackSubmit) {
+  constructor(popupSelector, callbackValidity, callbackSubmit) {
     super(popupSelector);
+    this._callbackValidity = callbackValidity;
     this._callbackSubmit = callbackSubmit;
   }
 
@@ -53,13 +56,19 @@ export default class PopupWithForm extends Popup {
   _submit(evt) {
     evt.preventDefault();
     this._callbackSubmit(this._getInputValues());
-    this._popupSelector.querySelector(".form-edit").reset();
     this.close();
+  }
+
+  open() {
+    super.open();
+    this._callbackValidity.resetValidation();
+    this._callbackValidity.setStateButton(false);
   }
 
   // Перезаписывает родительский метод close, так как при закрытии попапа форма должна ещё и сбрасываться.
   close() {
     this._popupSelector.removeEventListener("submit", this._submit);
+    this._popupSelector.querySelector(".form-edit").reset();
     super.close();
   }
 }

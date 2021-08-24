@@ -5,6 +5,8 @@ export const validationSetting = {
   submitButtonSelector: ".form-edit__save-button",
   inactiveButtonClass: "form-edit__save-button_inactive",
   errorClass: "form-edit__field-error_active",
+  errorTypeInvalid: "form-edit__field_type_error",
+  errorTypeValid: "form-edit__field_type_valid"
 };
 
 // Общие селекторы попапов

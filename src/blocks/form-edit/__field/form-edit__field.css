@@ -21,24 +21,3 @@
     margin-bottom: 45px;
   }
 }
-
-.form-edit__field:last-of-type {
-  border-bottom: none;
-}
-
-.form-edit__field:invalid {
-  border-bottom: 1px solid red;
-}
-
-.form-edit__field:valid {
-  border-bottom: 1px solid green;
-}
-
-/* 
-.form-edit__field_invalid {
-  border-bottom: 1px solid red;
-}
-
-.form-edit__field_valid {
-  border-bottom: 1px solid green;
-} */

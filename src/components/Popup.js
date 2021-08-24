@@ -46,8 +46,7 @@ export default class Popup {
   // Модальное окно закрывается при клике на затемнённую область вокруг формы
   setEventListeners() {
     this._closePopupButton.addEventListener("click", () => {
-      console.log("close");
-      this.close();
+      this.close(); // TO DO - Тут происходит наслоение слушателей
     });
   }
 }

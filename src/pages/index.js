@@ -17,11 +17,12 @@ import {
   popupImageData,
 } from "../Utils/settings.js";
 
-// Проходим по всем формам и создаем на каждую объект валидации, после вызываем сам метод enableValidation()
-popupData.formEditAll.forEach((formElement) => {
-  const formValidation = new FormValidator(formElement, validationSetting);
-  formValidation.enableValidation();
-});
+// Создаем объект валидации
+const validateFormCard = new FormValidator(popupCardData.popupCard, validationSetting);
+validateFormCard.enableValidation();
+// Создаем объект валидации
+const validateFormUser = new FormValidator(popupEditData.popupEdit, validationSetting);
+validateFormUser.enableValidation();
 
 // Вставляем секцию с картинками в этом нам поможет функция Section // Отрисовать все карточки/////
 const popupImage = new PopupWithImage(popupImageData.popupImage);
@@ -55,7 +56,7 @@ popupEditData.buttonAddPopupEdit.addEventListener("click", () => {
 });
 
 // Добавление карточки
-const popupFormEdit = new PopupWithForm(popupCardData.popupCard, (dataForm) => {
+const popupFormEdit = new PopupWithForm(popupCardData.popupCard, validateFormCard, (dataForm) => {
   const card = new Card(dataForm, popupCardData.cardTemplate, (data) => {
     popupImage.open(data);
   });
@@ -67,12 +68,13 @@ const userInfo = new UserInfo({
   name: userInfoData.cardName,
   job: userInfoData.cardJob,
 });
-const popupProfile = new PopupWithForm(popupEditData.popupEdit, (dataForm) => {
+const popupProfile = new PopupWithForm(popupEditData.popupEdit, validateFormUser, (dataForm) => {
   userInfo.setUserInfo(dataForm);
 });
 
 // Слушатель редактирования профиля
 popupEditData.openButtonPopupEdit.addEventListener("click", () => {
+  validateFormUser.resetValidation();
   popupProfile.setFieldText(userInfo.getUserInfo());
   popupProfile.open();
 });
