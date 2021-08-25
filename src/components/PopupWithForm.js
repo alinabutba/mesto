@@ -6,50 +6,41 @@ export default class PopupWithForm extends Popup {
   // callback сброс форы
   _callbackValidity = null;
   // Тут будут храниться инпут листы из
-  _inputListField = null;
+  _inputListField = [];
   // Хранит массив полей form-edit__field
   _inputsData = {};
+
   //  Привязываем метод _submit, к текущему контексту
   _submit = this._submit.bind(this);
+  _getInputValues = this._getInputValues.bind(this);
 
-  constructor(popupSelector, callbackValidity, callbackSubmit) {
-    super(popupSelector);
+  constructor(popupElement, callbackValidity, callbackSubmit) {
+    super(popupElement);
     this._callbackValidity = callbackValidity;
     this._callbackSubmit = callbackSubmit;
+    this._inputListField = [
+      ...this._popupElement.querySelectorAll(".form-edit__field"),
+    ];
   }
 
-  // Получаем все инпуты в попапе и возвращаем в виде массива
+  // Получаем все инпуты в попапе и возвращаем в виде объекта
   _getInputValues() {
-    this._inputListField = Array.from(
-      this._popupSelector.querySelectorAll(".form-edit__field")
-    );
     this._inputListField.forEach((field) => {
       this._inputsData[field.name] = field.value;
     });
-
     return this._inputsData;
+  }
+
+  //
+  setFieldText(data) {
+    document.querySelector("#name-form").value = data.name;
+    document.querySelector("#job-form").value = data.job;
   }
 
   // Собирает данные всех полей формы.
   setEventListeners() {
     super.setEventListeners();
-    this._popupSelector.addEventListener("submit", this._submit);
-  }
-
-  // Получаем доступ к полям, создадим массив
-  _getFieldText() {
-    this._inputListField = Array.from(
-      this._popupSelector.querySelectorAll(".form-edit__field")
-    );
-
-    return this._inputListField;
-  }
-
-  // Записать данные в поля
-  setFieldText({ name, job }) {
-    const fields = this._getFieldText();
-    fields[0].value = name;
-    fields[1].value = job;
+    this._popupElement.addEventListener("submit", this._submit);
   }
 
   // Вызов колбэк-функции с аргументами в виде полученой карточки, методом this._getInputValues()
@@ -67,8 +58,7 @@ export default class PopupWithForm extends Popup {
 
   // Перезаписывает родительский метод close, так как при закрытии попапа форма должна ещё и сбрасываться.
   close() {
-    this._popupSelector.removeEventListener("submit", this._submit);
-    this._popupSelector.querySelector(".form-edit").reset();
+    this._popupElement.querySelector(".form-edit").reset();
     super.close();
   }
 }

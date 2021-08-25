@@ -9,10 +9,9 @@ export default class Section {
     this._containerSelector = containerSelector;
   }
 
-  setItem() {
+  renderItems() {
     // Подготавливает массив данных, обработав их колбэком _renderer
     this._data.forEach((element) => {
-      // console.log(element);
       this._renderer(element);
     });
   }

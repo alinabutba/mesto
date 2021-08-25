@@ -4,15 +4,15 @@ export default class Popup {
 
   _closePopupButton = null;
 
-  _popupSelector = null; // Сам попап, к которому добавляем модификатор popup_opened
+  _popupElement = null; // Сам попап, к которому добавляем модификатор popup_opened
 
   _handleEscClose = this._handleEscClose.bind(this); // забиндим метод к текущему классу this
   _handleOverlayClose = this._handleOverlayClose.bind(this); // забиндим метод к текущему классу this
   setEventListeners = this.setEventListeners.bind(this); // забиндим метод к текущему классу this
 
-  constructor(popupSelector) {
-    this._popupSelector = popupSelector;
-    this._closePopupButton = this._popupSelector.querySelector(
+  constructor(popupElement) {
+    this._popupElement = popupElement;
+    this._closePopupButton = this._popupElement.querySelector(
       this._selectorPopupCloseButton
     );
   }
@@ -30,23 +30,22 @@ export default class Popup {
   }
 
   open() {
-    this._popupSelector.classList.add(this._selectorOpenedPopup);
+    this._popupElement.classList.add(this._selectorOpenedPopup);
     document.addEventListener("keyup", this._handleEscClose);
-    this._popupSelector.addEventListener("click", this._handleOverlayClose);
-    this.setEventListeners();
+    this._popupElement.addEventListener("click", this._handleOverlayClose);
   }
 
   close() {
-    this._popupSelector.classList.remove(this._selectorOpenedPopup);
+    this._popupElement.classList.remove(this._selectorOpenedPopup);
     document.removeEventListener("keyup", this._handleEscClose);
-    this._popupSelector.removeEventListener("click", this._handleOverlayClose);
+    this._popupElement.removeEventListener("click", this._handleOverlayClose);
   }
 
   // Содержит публичный метод setEventListeners, который добавляет слушатель клика иконке закрытия попапа
   // Модальное окно закрывается при клике на затемнённую область вокруг формы
   setEventListeners() {
     this._closePopupButton.addEventListener("click", () => {
-      this.close(); // TO DO - Тут происходит наслоение слушателей
+      this.close();
     });
   }
 }
