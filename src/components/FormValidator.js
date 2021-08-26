@@ -1,5 +1,4 @@
 export class FormValidator {
-
   // Форма, которая валидируется
   _formElement = null;
 
@@ -18,7 +17,7 @@ export class FormValidator {
   // Массив инпутов
   _inputList = null;
 
-  // Bind  
+  // Bind
   resetValidation = this.resetValidation.bind(this);
 
   constructor(formElement, validationSetting) {
