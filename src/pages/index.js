@@ -17,6 +17,10 @@ import {
   popupImageData,
 } from "../Utils/settings.js";
 
+const formName = document.querySelector("#name-form");
+const formJob = document.querySelector("#job-form");
+
+
 // Функция создания карточки, возвращает новую карточку
 function createCard(data) {
   return new Card(data, popupCardData.cardTemplate, (data) => {
@@ -96,6 +100,7 @@ popupProfile.setEventListeners();
 // Слушатель редактирования профиля
 popupEditData.openButtonPopupEdit.addEventListener("click", () => {
   validateFormUser.resetValidation();
-  popupProfile.setFieldText(userInfo.getUserInfo());
+  formName.value = userInfo.getUserInfo().name;
+  formJob.value = userInfo.getUserInfo().job;
   popupProfile.open();
 });

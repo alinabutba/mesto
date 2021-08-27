@@ -31,12 +31,6 @@ export default class PopupWithForm extends Popup {
     return this._inputsData;
   }
 
-  //
-  setFieldText(data) {
-    document.querySelector("#name-form").value = data.name;
-    document.querySelector("#job-form").value = data.job;
-  }
-
   // Собирает данные всех полей формы.
   setEventListeners() {
     super.setEventListeners();
