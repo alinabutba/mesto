@@ -1,17 +1,15 @@
 export default class Section {
-  _data = null; // Хранит набор данных
   _renderer = null; // Хранит ссылку на функцию (колбэк)
   _containerSelector = null; // Хранит dom узел, в который будет вставляться обработанные данные _data
 
-  constructor({ data, renderer }, containerSelector) {
-    this._data = data;
+  constructor({ renderer }, containerSelector) {
     this._renderer = renderer;
     this._containerSelector = containerSelector;
   }
 
-  renderItems() {
+  renderItems(cards) {
     // Подготавливает массив данных, обработав их колбэком _renderer
-    this._data.forEach((element) => {
+    cards.forEach((element) => {
       this._renderer(element);
     });
   }
