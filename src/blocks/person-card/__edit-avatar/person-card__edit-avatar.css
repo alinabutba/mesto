@@ -1,6 +1,6 @@
 .person-card__edit-avatar {
     position: relative;
-    top: 50%;                        
+    top: 50%;
     transform: translate(0, -50%);
     margin: 0 auto 0 auto;
     height: 26px;
