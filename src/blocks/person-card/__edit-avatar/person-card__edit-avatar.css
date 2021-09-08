@@ -1,0 +1,20 @@
+.person-card__edit-avatar {
+    position: relative;
+    top: 50%;                        
+    transform: translate(0, -50%);
+    margin: 0 auto 0 auto;
+    height: 26px;
+    width: 26px;
+    border: 1px rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0);
+    background-repeat: no-repeat;
+    cursor: pointer;
+    display: block;
+    background-image: url(../../../images/editAvatar.png);
+    opacity: 0;
+    transition: opacity .3s ease;
+}
+
+.person-card__edit-avatar:hover {
+    opacity: 1;
+}

@@ -14,14 +14,17 @@
 		</header>
 		<main>
 			<section class="person-card root__section">
-				<img src="<%=require('./images/girl-with-emotions.jpg')%>" alt="Девочка" class="person-card__avatar">
+				<div class="person-card__container-avatar">
+					<img src="<%=require('./images/girl-with-emotions.jpg')%>" alt="Девочка" class="person-card__avatar">
+					<button class="person-card__edit-avatar" aria-label="Изменить аватар"></button>
+				</div>				
 				<div class="person-card__cover">
 					<div class="person-card__row">
-						<h1 class="person-card__name">Эмили Кусто</h1>
+						<h1 class="person-card__name">...</h1>
 						<button class="person-card__edit-button" type="button"
 							aria-label="Редактировать профиль"></button>
 					</div>
-					<p class="person-card__job">Исследователь городов и эмоций</p>
+					<p class="person-card__job">...</p>
 				</div>
 				<button class="add-button" type="button"></button>
 			</section>
@@ -32,12 +35,16 @@
 						<img src="#" alt="#" class="element__image">
 						<div class="element-container">
 							<h2 class="element__title"></h2>
-							<button class="element__like" type="button"></button>
+							<div class="element__container-like">
+								<button class="element__like" type="button"></button>
+								<span class="element__like-count">0</span>
+							</div>							
 							<button class="element__delete" type="button"></button>
 						</div>
 					</div>
 				</template>
 				<!-- END TEMPLATE CARD -->
+				
 			</section>
 		</main>
 		<footer class="footer root__section">
@@ -55,6 +62,34 @@
 						<input type="text" class="form-edit__field" required name="job" id="job-form"
 							placeholder="Место работы" autocomplete="off" minlength="2" maxlength="200">
 						<span class="form-edit__field-error" id="job-form-error"></span>
+						<button class="form-edit__save-button" type="submit" aria-label="Сохранить">Сохранить</button>
+					</fieldset>
+				</form>
+				<button type="button" class="popup__close-button" aria-label="Закрыть"></button>
+			</div>
+		</div>
+
+		<!-- Confirm -->
+		<div class="popup" id="popup-confirm">
+			<div class="popup__form">
+				<h3 class="popup__title">Вы уверены?</h3>
+				<form action="#" name="form-confirm" class="form-edit" id="confirm-form" novalidate>
+					<fieldset class="form-edit__contact-info">
+						<button class="form-edit__save-button" type="submit" aria-label="Сохранить">Да</button>
+					</fieldset>
+				</form>
+				<button type="button" class="popup__close-button" aria-label="Закрыть"></button>
+			</div>
+		</div>
+		
+		<!-- Popup avatar -->
+		<div class="popup" id="popup-avatar">
+			<div class="popup__form">
+				<h3 class="popup__title">Обновить аватар</h3>
+				<form action="#" name="form-avatar" class="form-edit" id="avatar-form" autocomplete="off" novalidate>
+					<fieldset class="form-edit__contact-info">
+						<input type="url" class="form-edit__field" required name="link" id="link-form" placeholder="Ссылка на картинку">
+						<span class="form-edit__field-error" id="link-form-error"></span>
 						<button class="form-edit__save-button" type="submit" aria-label="Сохранить">Сохранить</button>
 					</fieldset>
 				</form>

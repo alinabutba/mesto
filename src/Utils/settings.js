@@ -25,10 +25,11 @@ export const popupEditData = {
   jobInput: document.querySelector("#job-form"),
 };
 
-// Селекторы, отображающие имя и профессию
+// Селекторы, отображающие имя, о себе, аватар
 export const userInfoData = {
   cardName: document.querySelector(".person-card__name"),
   cardJob: document.querySelector(".person-card__job"),
+  avatar: document.querySelector(".person-card__avatar")
 };
 
 // Попап добавления карточки
@@ -38,10 +39,26 @@ export const popupCardData = {
   cardTitle: document.querySelector("#title-form"),
   cardLink: document.querySelector("#link-form"),
   cardsContainerTemplate: document.querySelector(".elements"),
-  cardTemplate: document.querySelector("#element-template"),
-};
+  cardTemplate: document.querySelector("#element-template"),  
+  cardCountLike: document.querySelector(".element__like-count"),
+  cardElementLike: document.querySelector(".element__like"),  
+}
 
 // Попап с картинкой
 export const popupImageData = {
   popupImage: document.querySelector("#popup-image"),
 };
+
+
+// Попап confirm
+export const popupConfirmData = {
+  popupConfirm: document.querySelector("#popup-confirm"),
+  submitCardForm: document.querySelector("#form-confirm"),
+}
+
+// Попап avatar
+export const popupAvatarData = {
+  popupAvatar: document.querySelector("#popup-avatar"),
+  submitAvatarForm: document.querySelector("#form-avatar"),
+  cardLink: document.querySelector("#link-form")
+}

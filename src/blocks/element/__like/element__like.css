@@ -1,12 +1,13 @@
 .element__like {
+  /* display: flex; */
   padding: 0;
   content: "";
   background-repeat: no-repeat;
   border: none;
   min-width: 22px;
   height: 19px;
-  margin: auto 20px auto 0;
+  margin: 22px 20px 3px 0;
   cursor: pointer;
   background-color: inherit;
-  background-image: url(../../../images/Vector-like.png);
+  background-image: url(../../../images/Vector-like.png);  
 }

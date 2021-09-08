@@ -1,0 +1,10 @@
+.person-card__container-avatar {
+    align-self: center;
+    align-content: center;
+    align-items: center;
+    max-width: 120px;
+    margin: 0 30px 0 0;
+    width: 100%;
+  height: 100%;
+  height: 120px;
+}

@@ -14,8 +14,13 @@ export default class PopupWithForm extends Popup {
   _submit = this._submit.bind(this);
   _getInputValues = this._getInputValues.bind(this);
 
+  _submitButtonText = null;
+
   constructor(popupElement, callbackValidity, callbackSubmit) {
     super(popupElement);
+    this._submitButtonText = popupElement.querySelector(
+      ".form-edit__save-button"
+    );
     this._callbackValidity = callbackValidity;
     this._callbackSubmit = callbackSubmit;
     this._inputListField = [
@@ -41,10 +46,12 @@ export default class PopupWithForm extends Popup {
   _submit(evt) {
     evt.preventDefault();
     this._callbackSubmit(this._getInputValues());
-    this.close();
+    this._submitButtonText.textContent = "Сохранение...";
+    // this.close();
   }
 
   open() {
+    this._submitButtonText.textContent = "Сохранить";
     super.open();
     this._callbackValidity.resetValidation();
     this._callbackValidity.setStateButton(false);

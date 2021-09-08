@@ -12,7 +12,9 @@
 @import url(../blocks/logo/logo.css);
 
 @import url(../blocks/person-card/person-card.css);
+@import url(../blocks/person-card/__container-avatar/person-card__container-avatar.css);
 @import url(../blocks/person-card/__avatar/person-card__avatar.css);
+@import url(../blocks/person-card/__edit-avatar/person-card__edit-avatar.css);
 @import url(../blocks/person-card/__cover/person-card__cover.css);
 @import url(../blocks/person-card/__edit-button/person-card__edit-button.css);
 @import url(../blocks/person-card/__image-button/person-card__image-button.css);
@@ -27,8 +29,11 @@
 @import url(../blocks/element/element.css);
 @import url(../blocks/element/__container/element-container.css);
 @import url(../blocks/element/__delete/element__delete.css);
+@import url(../blocks/element/__delete/_active/element__delete_active.css);
+@import url(../blocks/element/__container-like/element__container-like.css);
 @import url(../blocks/element/__image/element__image.css);
 @import url(../blocks/element/__like/element__like.css);
+@import url(../blocks/element/__like-count/element__like-count.css);
 @import url(../blocks/element/__like/_active/element__like_active.css);
 @import url(../blocks/element/__title/element__title.css);
 

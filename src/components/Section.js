@@ -14,8 +14,12 @@ export default class Section {
     });
   }
 
-  addItem(element) {
+  addItem(element, isAppend = true) {
     // Производит вставку элемента element в узел _containerSelector
-    this._containerSelector.prepend(element);
+    if (isAppend) {
+      this._containerSelector.append(element);
+    } else {
+      this._containerSelector.prepend(element);
+    }
   }
 }

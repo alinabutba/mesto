@@ -1,5 +1,3 @@
-import { cohort, token } from "../Utils/settingsApi";
-
 export default class Api {
   _token = null;
   _cohort = null;
@@ -13,12 +11,7 @@ export default class Api {
     this._baseUserUrl = this._baseUrl + this._cohort + "/";
   }
 
-  //    ``${this._baseUserUrl}users/me`
-  //  .then((res) => (res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`)));
-
-// TO DO Оптимизация, тернарные выражения, повторения вложить в объекты и передавать их
-
-
+  // TO DO Оптимизация, тернарные выражения???
 
   // Тут происходит обработка responce
   _handlerResponse(responce) {
@@ -37,7 +30,6 @@ export default class Api {
     }
   }
 
-  
   // 1. Загрузка информации о пользователе с сервера
   //GET https://nomoreparties.co/v1/cohortId/users/me
   getUser() {
@@ -49,7 +41,6 @@ export default class Api {
       },
     }).then(this._handlerResponse);
   }
-
   // 2. Загрузка карточек с сервера
   getCards() {
     return fetch(`${this._baseUserUrl}cards`, {
@@ -90,7 +81,8 @@ export default class Api {
   }
   // 7. Удаление карточки
   deleteCard(data) {
-    return fetch(`${this._baseUserUrl}cards/${data.cardId}`, {
+    console.log(`DELETING DATA:${data}`);
+    return fetch(`${this._baseUserUrl}cards/${data._id}`, {
       method: "DELETE",
       headers: {
         authorization: this._token,
@@ -105,7 +97,7 @@ export default class Api {
   //Чтобы убрать лайк, нужно отправить DELETE-запрос с тем же URL:
   //DELETE https://mesto.nomoreparties.co/v1/cohortId/cards/likes/cardId
   setLike(data) {
-    return fetch(`${this._baseUserUrl}cards/likes/${data.cardId}`, {
+    return fetch(`${this._baseUserUrl}cards/likes/${data._id}`, {
       method: "PUT",
       headers: {
         authorization: this._token,
@@ -113,9 +105,8 @@ export default class Api {
       },
     }).then(this._handlerResponse);
   }
-
   deleteLike(data) {
-    return fetch(`${this._baseUserUrl}cards/likes/${data.cardId}`, {
+    return fetch(`${this._baseUserUrl}cards/likes/${data._id}`, {
       method: "DELETE",
       headers: {
         authorization: this._token,
@@ -128,14 +119,14 @@ export default class Api {
   //PATCH https://mesto.nomoreparties.co/v1/cohortId/users/me/avatar
   setUserAvatar(data) {
     return fetch(`${this._baseUserUrl}users/me/avatar`, {
-      method: "GET",
+      method: "PATCH",
       headers: {
         authorization: this._token,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-          avatar: data.avatar
-      })
+        avatar: data.avatar,
+      }),
     }).then(this._handlerResponse);
   }
 }
