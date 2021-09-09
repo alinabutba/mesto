@@ -31,7 +31,7 @@ const api = new Api("https://mesto.nomoreparties.co/v1/", token, cohort);
   api
     .getUser()
     .then((res) => {
-      console.log(
+      console.log(        
         `user id:${res._id}\nuser name:${res.name}\nabout:${res.about}\nuser avatar:${res.avatar}`
       );
       userInfo.setUserInfo(res);
@@ -149,20 +149,22 @@ const api = new Api("https://mesto.nomoreparties.co/v1/", token, cohort);
         popupDeleteConfirm.setEventListeners();
         popupDeleteConfirm.open();
       },
-      handleSetLike: () => {
+      handleSetLike: (dt) => {
         api
-          .setLike(data)
+          .setLike(dt)
           .then((res) => {
+            card.setLike(dt);            
             card.setCountLike(res);
           })
           .catch((err) => {
             console.log(err);
           });
       },
-      handleDeletLike: () => {
+      handleDeletLike: (dt) => {
         api
-          .deleteLike(data)
+          .deleteLike(dt)
           .then((res) => {
+            card.deleteLike(dt);            
             card.setCountLike(res);
           })
           .catch((err) => {
@@ -199,11 +201,11 @@ const api = new Api("https://mesto.nomoreparties.co/v1/", token, cohort);
                 createCard(userData._id, res, popupCardData).getCard(),
                 false
               );
+              popupAddCard.close();
             })
             .catch((err) => {
               console.log(err);
             })
-            .finally(popupAddCard.close());
         }
       );
       popupAddCard.setEventListeners();

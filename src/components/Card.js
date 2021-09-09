@@ -46,8 +46,8 @@ export class Card {
   // Установка заголовка
   _setDataCard(data) {
     this._elementCard.querySelector(".element__title").textContent = data.name;
-    this._elementCard.querySelector(".element__image").alt = this._data.name;
-    this._elementCard.querySelector(".element__image").src = this._data.link;
+    this._elementImage.alt = this._data.name;
+    this._elementImage.src = this._data.link;
   }
 
   // Видимость элемента удалить карточку
@@ -89,11 +89,11 @@ export class Card {
     this._elementLike.addEventListener("click", () => {
       // Происходит проверка, есть ли уже element__like_active в класс листе element__like
       if (this._elementLike.classList.contains("element__like_active")) {
-        this._handleDeletLike();
-        this._deleteLike(this._data);
+        this._handleDeletLike(this._data);
+        // this.deleteLike(this._data);
       } else {
-        this._handleSetLike();
-        this._setLike(this._data);
+        this._handleSetLike(this._data);
+        // this.setLike(this._data);
       }
     });
   }
@@ -116,17 +116,17 @@ export class Card {
   }
 
   // Устанавливает лайки
-  _setLikes() {
+  setLikes() {
     this._checkIsLike(this._ownerId)
-      ? this._setLike(this._data)
-      : this._deleteLike(this._data);
+      ? this.setLike(this._data)
+      : this.deleteLike(this._data);
   }
 
-  _setLike(data) {
+  setLike(data) {
     this._addLikeActive();
     this.setCountLike(data);
   }
-  _deleteLike(data) {
+  deleteLike(data) {
     this._removeLikeActive();
     this.setCountLike(data);
   }
@@ -145,7 +145,7 @@ export class Card {
     this._elementImage = this._elementCard.querySelector(".element__image");
     this._setDataCard(this._data);
     this._setEventListeners();
-    this._setLikes();
+    this.setLikes();
     return this._elementCard; // Возвращаем собранную карточку
   }
 }

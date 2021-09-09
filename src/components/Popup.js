@@ -32,7 +32,7 @@ export default class Popup {
   open() {
     this._popupElement.classList.add(this._selectorOpenedPopup);
     document.addEventListener("keyup", this._handleEscClose);
-    this._popupElement.addEventListener("click", this._handleOverlayClose);
+    this._popupElement.addEventListener("mousedown", this._handleOverlayClose);
   }
 
   close() {
